@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>授权中...</title>
+
+  <link rel="stylesheet" href="./assets/css/oauth.css" />
+</head>
+<body>
+<div id="app">
+  <div class="greg-bg" v-show="showStartup" >
+    <div style="text-align: center;height: 100%;line-height: 100%;">
+      <!-- <img src="./assets/images/startupPage.gif" alt="" style="width: 100%;height: 85%;object-fit: contain;"> -->
+    </div>
+  </div>
+</div>
+
+  <script> 
+    function created() {
+      const { code, projectType, directUrl, authType, pathCode = '', ...otherQuery } = getQueryObj()
+      const router = window.location.pathname.replace('/oauth.html', '')
+      
+      if (authType) {
+        // 表示从 /pages-a/authorization/auth-certify 跳转到 当前页面 进行授权认证
+        const queryStr = queryObjToStr(Object.assign(
+          {
+            code,
+            projectType,
+            authType,
+            pathCode
+          },
+          otherQuery
+        ))
+        location.replace(`${router}/#/pages-a/authorization/auth-certify?${queryStr}`)
+      } else if (directUrl) {
+        // 保留旧的逻辑
+        const queryStr = queryObjToStr(Object.assign(
+          {
+            code,
+            projectType,
+            _t: new Date().getTime()
+          }
+        ))
+        location.replace(`${router}/#/${directUrl}?${queryStr}`)
+      } else {
+        const queryStr = queryObjToStr(Object.assign(
+          {
+            code,
+            projectType,
+            _t: new Date().getTime()
+          }
+        ))
+        location.replace(`${router}/#/pages/index/index?${queryStr}`)
+      }
+    }
+
+    created()
+
+    function getQueryObj() {
+      const query = window.location.href.split('?')[1] || ''
+      if (!query) return {}
+
+      // 'a=b&c=d' => {a: 'b', c: 'd'}
+      const res = query.split('&').reduce((res, item) => {
+        const [key, val] = item.split('=')
+        res[key] = decodeURIComponent(val)
+        return res
+      }, {})
+
+      return res
+    }
+
+    // {a: 'b', c: 'd'} => 'a=b&c=d'
+    function queryObjToStr(obj = {}) {
+      const res = Object.keys(obj).reduce((res, key) => {
+        const val = obj[key]
+        res.push(`${key}=${encodeURIComponent(val)}`)
+
+        return res
+      }, []).join('&')
+
+      return res
+    }
+  </script>
+
+</body>
+</html>

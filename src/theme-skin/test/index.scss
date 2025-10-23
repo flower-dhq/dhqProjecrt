@@ -1,0 +1,11 @@
+
+
+// view 增加css权重
+view.theme-test.test {
+  .skin-shape {
+    border-radius: 10rpx;
+    background-image: url(@/pages-a/static/logo.png);
+    background-size: contain;
+    border: 4rpx solid var(--skin-shape__bd-color);
+  }
+}
