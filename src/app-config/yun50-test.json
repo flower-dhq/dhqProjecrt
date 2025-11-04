@@ -1,0 +1,17 @@
+{
+    "NAME": "云测试50", // 选择项目时的名称，必填
+    "APP_CONFIG": {
+      // 挂在Node 环境变量 VITE_APP_CONFIG及 import.meta.env.VITE_APP_CONFIG
+      "PROJECT_CODE": "cloud_test_50", // 作为localStorage存储key的后缀：PC_TOKEN_cloud_test_50
+      "DOMAIN_DEV": "https://ebeitest50.wuyeface.com:4433",
+      "DOMAIN_PRO": "https://ebeitest50.wuyeface.com:4433",
+      "PROXY_PATH": "/API", // 主代理路径
+      // 多代理映射
+      "PROXY_MAP":  [
+        {
+          "PATH": "/API",
+          "DOMAIN": "https://ebeitest50.wuyeface.com:4433"
+        }
+      ]
+    }
+  }

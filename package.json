@@ -1,0 +1,34 @@
+{
+  "name": "vue-app",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "script-dev": "node scripts NPM_ARG=dev",
+    "script-build": "node scripts NPM_ARG=build"
+  },
+  "dependencies": {
+    "axios": "^1.5.1",
+    "js-md5": "^0.8.3",
+    "qs": "^6.11.2",
+    "view-ui-plus": "^1.3.16",
+    "vue": "^3.4.15",
+    "vue-router": "^4.2.5",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.3.4",
+    "babel-plugin-import": "^1.13.8",
+    "chalk": "^4.0.0",
+    "dotenv": "^16.4.1",
+    "hjson": "^3.2.2",
+    "inquirer": "^8.2.2",
+    "sass": "^1.49.8",
+    "terser": "^5.27.0",
+    "vite": "^4.4.9",
+    "vite-plugin-style-import": "^1.4.1"
+  },
+  "browserslist": []
+}

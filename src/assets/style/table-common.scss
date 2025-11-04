@@ -1,0 +1,77 @@
+.table-action-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span{
+    margin: 0 5px;
+    cursor: pointer;
+    color: #2d8cf0;
+  }
+}
+.page-box{
+  text-align: right;
+  margin-top: 15px;
+}
+
+.gridTable{
+  border:#ececec solid 1px; 
+  text-align: center;
+  border-collapse: collapse;
+  width:100%;
+  font-size: 13px;
+}
+
+.gridTable td,.gridTable th{
+  font-size: 13px;
+  border-collapse: collapse;
+  line-height: 24px;
+  border:#ececec solid 1px; 
+  padding:5px 5px; 
+  text-align: left;
+  font-weight: normal;
+}
+.gridTable th{
+  text-align: center;
+}
+
+.gridTable th.required{
+  
+}
+.gridTable th.required::after{
+  content: '*';
+  color: #ed3f14;
+  position: relative;
+  top: 5px;
+  left: 2px;
+  font-size: 20px;
+}
+.gridTable td div,.gridTable th div{
+  margin:0;
+}
+.gridTable .ivu-form-item{
+  margin-bottom: 0;
+}
+.gridTable th .redfont{ 
+  color:#f00; padding: 0 0 0 3px;
+}
+.gridTable th{
+  background:#F8F9FB;
+}
+.gridTable div.ivu-form-item-error-tip{
+  position: absolute;
+  top: 3px;
+  left:auto;
+  right: 30px;
+  line-height: 1;
+  padding-top: 6px;
+  color: #ed3f14;    
+  z-index: 10;
+}
+.gridTable{
+  line-height: 32px;
+  min-height: 32px;
+}
+::v-deep .ivu-table-cell {
+  overflow: visible;
+}

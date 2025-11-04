@@ -1,0 +1,17 @@
+{
+    "NAME": "中旅UAT", // 选择项目时的名称，必填
+    "APP_CONFIG": {
+      // 挂在Node 环境变量 VITE_APP_CONFIG及 import.meta.env.VITE_APP_CONFIG
+      "PROJECT_CODE": "zhonglv_uat", // 作为localStorage存储key的后缀：PC_TOKEN_cloud_test_50
+      "DOMAIN_DEV": "https://uat.ctgasset.com",
+      "DOMAIN_PRO": "https://uat.ctgasset.com",
+      "PROXY_PATH": "/API", // 主代理路径
+      // 多代理映射
+      "PROXY_MAP":  [
+        {
+          "PATH": "/API",
+          "DOMAIN": "https://uat.ctgasset.com"
+        }
+      ]
+    }
+  }

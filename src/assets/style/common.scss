@@ -1,0 +1,48 @@
+
+
+$primary-color: #2d8cf0;
+$global-z-index: 999; 
+$top-section-height: 105px; // 右侧顶部的高度
+$page-padding: 20px;
+$left-nav-width: 200px;
+
+// flex布局
+@mixin flx-dsp($jsc, $ali, $drt: row) {
+  display: flex;
+  flex-direction: $drt;
+  justify-content: $jsc;
+  align-items: $ali;
+}
+
+// 多行省略
+@mixin ellipsis($line: 2) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  word-break: break-all;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+    width:8px;
+    height:8px;
+    background-color: #F5F5F5;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0);
+    border-radius:5px;
+    background-color: #F5F5F5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+    border-radius:5px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.1);
+    background-color: #dfdfdf;
+}
