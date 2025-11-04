@@ -1,0 +1,66 @@
+{
+  "NAME": "测试", // 选择项目时的名称，必填
+  "APP_CONFIG": {
+    "PROJECT_CODE": "TEST", // 项目编码，常量的写法
+    "PROJECT_TYPE": "",
+    "DOMAIN_DEV": "http://cms.wuyeface.com",
+    "DOMAIN_PRO": "http://cms.wuyeface.com",
+    "PROXY_PATH": "/API",
+    "THEME_NAME": "theme-test"
+  },
+  "MANIFEST": {
+    "h5": {
+      "devServer": {
+        "port": "",
+        "disableHostCheck": true,
+        "proxy": {
+          "/API": {
+            "target": "https://shopmall-test6.wuyeface.com",
+            "changeOrigin": true,
+            "secure": false,
+            "pathRewrite": {
+              "^/API": ""
+            }
+          },
+          "/MINI": {
+            "target": "http://120.48.54.162",
+            "changeOrigin": true,
+            "secure": false,
+            "pathRewrite": {
+              "^/MINI": ""
+            }
+          },
+          "/LC": {
+            "target": "http://127.0.0.1:8888",
+            "changeOrigin": true,
+            "secure": false,
+            "pathRewrite": {
+              "^/LC": ""
+            }
+          }
+        },
+        "https": false
+      },
+      "router": {
+        "mode": "hash",
+        "base": "./"
+      }
+    },
+    "mp-weixin": {
+      "appid": "wx90fbc9385e7e546d",
+      "setting": {
+        "urlCheck": true,
+        "minified": true
+      },
+      "usingComponents": true,
+      "permission": {
+        "scope.userLocation": {
+          "desc": "位置信息"
+        }
+      },
+      "optimization": {
+        "subPackages": true
+      }
+    }
+  }
+}

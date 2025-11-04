@@ -1,0 +1,34 @@
+// 一些已经定义了某些样式的类名
+$m-c: #C8924B;
+// flex，水平
+.flex-row {
+  display: flex;
+}
+// flex，垂直
+.flex-column {
+  @extend .flex-row;
+  flex-direction: column;
+}
+// flex，自由伸缩
+.flex-stretch {
+  flex: 1;
+  overflow: hidden;
+}
+// flex，固定大小
+.felx-fixed {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+// 一行省略
+.ellipsis-one {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin flx-dsp($jsc, $ali, $drt: row) {
+  display: flex;
+  flex-direction: $drt;
+  justify-content: $jsc;
+  align-items: $ali;
+}

@@ -1,0 +1,88 @@
+{
+  "NAME": "丽影公众号", // 选择项目时的名称，必填
+  "APP_CONFIG": {
+    // 挂在Node 环境变量 VUE_APP_CONFIG
+
+    "PROJECT_CODE": "LYWY", // 项目编码，常量的写法
+    "PROJECT_TYPE": "216", // 跟COMPLANY_ID在运营中心查询
+
+    "DOMAIN_DEV": "https://www.gzlywy.com.cn",
+    "DOMAIN_PRO": "https://www.gzlywy.com.cn",
+    "PROXY_PATH": "/API", // 接口代理路径
+    "THEME_NAME": "theme-default",
+    "COMPLANY_ID": "473",
+    "IMG_BASE_URL": "https://www.gzlywy.com.cn", // 图片前缀（域名或ip），例如：http://183.239.172.150:5905
+    "IMG_BASE_FOLDER": "", // 存放线上图片文件目录, 不用加斜杆，例如： online-assets
+    "ENABLED_MALL": true, // 是否启用商城模块
+  //   "ENABLED_MALL": true, // 是否启用商城模块
+    "PAY_ORIGINAL_ID": "gh_0f49d2fd1362", // 微信支付小程序原始id（不一定是本小程序，可能其他小程序）
+    "PAYMENT": { "wx": "jsapi", "zfb": "app" }, // 支付方式。请查看 DOC.md 文档
+    "OA_APP_ID": "wx6dbb80d632844719" ,// 公众号appid
+    "PHONE": "4006353608", // 400电话
+    "LEASING_V6": false,
+    "NEIKONG_V6": true,
+    "PROGRAM_TYPE":"wechat" //打包出来的类型，用户判断app登录和绑定手机号时判断页面  默认小程序 公众号wechat,app内嵌h5 appH5, app：app 
+
+  },
+  "MANIFEST": {
+    "name": "丽影",
+    "appid": "",
+    "app-plus": {
+      "distribute": {
+        "sdkConfigs": {
+          "oauth": {
+            "weixin": {
+              "appid": "wx6dbb80d632844719",
+              "appSecret": "513556d31275608719ecd2d7810b3abc",
+              "UniversalLinks": ""
+            }
+          }
+        }
+      },
+      "compatible": {
+        "ignoreVersion": true // 暂时隐藏提示
+      },
+      "modules" : {
+        "Share" : {},
+        "Camera" : {}
+      }
+    },
+    "h5": {
+      "devServer": {
+        "port": "",
+        "disableHostCheck": true,
+        "proxy": {
+          "/API": {
+            "target": "https://www.gzlywy.com.cn",
+            "changeOrigin": true,
+            "secure": false,
+            "pathRewrite": {
+              "^/API": ""
+            }
+          }
+        },
+        "https": false
+      },
+      "router": {
+        "mode": "hash",
+        "base": "./"
+      }
+    },
+    "mp-weixin": {
+      "appid": "wx6dbb80d632844719",
+      "setting": {
+        "urlCheck": true,
+        "minified": true
+      },
+      "usingComponents": true,
+      "permission": {
+        "scope.userLocation": {
+          "desc": "位置信息"
+        }
+      },
+      "optimization": {
+        "subPackages": true
+      }
+    }
+  }
+}

@@ -1,0 +1,217 @@
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+
+ @import 'uview-ui/theme.scss';
+
+ @import "cl-uni/theme.scss";
+
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 此样式改为商城主题色 */
+$uni-color-primary: #C8924B;
+$uni-color-success: #4cd964;
+$uni-color-warning: #f0ad4e;
+$uni-color-error: #dd524d;
+// TODO 设计稿里$uni-color-main和$uni-color-assist是两种颜色的，一个主色深点一个辅色浅点，现在统一换成一个颜色
+$uni-color-main: #C8924B;
+$uni-color-assist: #C8924B;
+
+/* 文字基本颜色 */
+$uni-text-color:#333;//基本色
+$uni-text-color-inverse:#fff;//反色
+$uni-text-color-grey:#999;//辅助灰色，如加载更多的提示信息
+$uni-text-color-placeholder: #808080;
+$uni-text-color-disable:#c0c0c0;
+
+/* 背景颜色 */
+$uni-bg-color:#ffffff;
+$uni-bg-color-grey:#f7f7f7;
+$uni-bg-color-hover:#f1f1f1;//点击状态颜色
+$uni-bg-color-mask:rgba(0, 0, 0, 0.4);//遮罩颜色
+
+
+/* 边框颜色 */
+$uni-border-color:#c8c7cc;
+
+/* 尺寸变量 */
+
+/* 文字尺寸 */
+$uni-font-size-sm:24rpx;
+$uni-font-size-base:26rpx;
+$uni-font-size-lg:30rpx;
+
+/* 图片尺寸 */
+$uni-img-size-sm:40rpx;
+$uni-img-size-base:52rpx;
+$uni-img-size-lg:80rpx;
+
+/* Border Radius */
+$uni-border-radius-sm: 4rpx;
+$uni-border-radius-base: 6rpx;
+$uni-border-radius-lg: 12rpx;
+$uni-border-radius-circle: 50%;
+
+/* 水平间距 */
+$uni-spacing-row-sm: 10px;
+$uni-spacing-row-base: 20rpx;
+$uni-spacing-row-lg: 30rpx;
+
+/* 垂直间距 */
+$uni-spacing-col-sm: 8rpx;
+$uni-spacing-col-base: 16rpx;
+$uni-spacing-col-lg: 24rpx;
+
+/* 透明度 */
+$uni-opacity-disabled: 0.3; // 组件禁用态的透明度
+
+/* 文章场景相关 */
+$uni-color-title: #2C405A; // 文章标题颜色
+$uni-font-size-title:40rpx;
+$uni-color-subtitle: #555555; // 二级标题颜色
+$uni-font-size-subtitle:36rpx;
+$uni-color-paragraph: #3F536E; // 文章段落颜色
+$uni-font-size-paragraph:30rpx;
+
+// flex布局
+@mixin flx-dsp($jsc, $ali, $drt: row) {
+    display: flex;
+    flex-direction: $drt;
+    justify-content: $jsc;
+    align-items: $ali;
+}
+
+// 多行省略
+@mixin ellipsis($line: 2) {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $line;
+	word-break: break-all;
+}
+
+
+
+
+/************** 商城样式 **************/
+
+/* cl-uni组件库 默认主题色 */
+$cl-color-primary: #C8924B;
+$cl-color-default: #dcdfe6;
+$cl-color-success: #67c23a;
+$cl-color-warning: #e6a23c;
+$cl-color-error: #dd524d;
+$cl-color-info: #909399;
+$cl-color-disabled: #c0c4cc;
+
+$gray-1: #999;
+$gray-2: #cbcbcb;
+
+// 页面版心宽度
+$comm-width: 710rpx;
+
+.common-width{
+	margin: 0 auto;
+	width: 710rpx;
+}
+
+// flex-grow和flex-shrink设置
+@mixin flx-size($size: 'stretch') {
+	@if $size == 'stretch' {
+		flex-grow: 1;
+		flex-shrink: 1;
+		overflow: hidden;
+	} @else if $size == 'keep' {
+		flex-grow: 0;
+		flex-shrink: 0;
+	}
+}
+
+// 我是底线：若重名类名，请另命名
+.bottom-line{
+	& > text:first-child {
+		display: block;
+		position: absolute;
+		width: 100%;
+		top: 0 !important;
+		width: 100%;
+		height: 20px !important;
+		/*  #ifdef  MP-WEIXIN  */
+		height: 34rpx !important;
+		/*  #endif  */
+		transform: translateY(0%) !important;
+		background-color: transparent !important;
+		border-bottom: 1px solid #cacaca;
+	}
+	& > text:last-child {
+		@include flx-dsp($jsc: center, $ali: center);
+		font-size: 24rpx !important;
+		line-height: 40rpx;
+	}
+}
+
+// 页面显示区域高度，去除顶部标题栏和底部导航栏的高度
+.page-box {
+	height: 100%;
+	
+	/* #ifdef H5 */
+	// height: calc(100vh - (88rpx + env(safe-area-inset-top)) - 100rpx);
+	/* #endif */
+
+	/* #ifdef MP-WEIXIN */
+	// height: 100vh;
+	/* #endif */
+}
+// 页面显示区域高度，去除顶部标题栏的高度，用于不存在底部导航栏页面
+.page-box-top {
+	/* #ifdef H5 */
+	height: calc(100vh - (88rpx + env(safe-area-inset-top)));
+	/* #endif */
+
+	/* #ifdef MP-WEIXIN */
+	height: 100vh;
+	/* #endif */
+}
+
+//0.5px高度的分割线
+.half-line{
+	position:relative;    //先给元素设置定位,除了static都可以
+  }
+  .half-line::after{
+	content: '';    //追加一个空
+	position: absolute;    //设置定位
+	top: 0;  //如果不设置可能会出现偏移
+	left: 0;  
+	border-bottom: 1px solid #e4e4e4;    //设置边框
+	width: 200%;    //设置为插入元素的两倍宽高
+	height: 200%;
+	transform-origin: 0 0;    //设置元素的基点为0 0
+	transform: scale(0.5,0.5);    //宽高缩小一半
+	box-sizing: border-box;    //设置盒模型 这一步必须要有,否则边框不会随着一起缩放
+  }
+
+// 文本省略号
+@mixin textEllipsis($line: 1) {
+	@if ($line == 1) {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	} @else {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: $line;
+		-webkit-box-orient: vertical;
+	}
+}
+

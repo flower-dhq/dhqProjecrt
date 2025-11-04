@@ -1,0 +1,12 @@
+// 1、选择器尽量简洁，三级选择器以内
+// 2、部分样式属性简写：[background-color：bg-color]  [border-color: bd-color] [background-image:bg-img]
+// 3、变量名命名规则：--元素(英文小写、单词之间以-拼接)__(元素或状态之间以__双下划线拼接)元素__样式属性(若多个样式属性共用一个值，起个通用语意名字)
+
+// 主题色
+$uni-tag__primary__theme-color: var(--app-primary-color) !important;
+
+// uni-tag 标签
+.uni-tag--primary {
+  background-color: $uni-tag__primary__theme-color;
+  border-color: $uni-tag__primary__theme-color;
+}

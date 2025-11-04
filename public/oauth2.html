@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>授权中...</title>
+
+  <link rel="stylesheet" href="./assets/css/oauth.css" />
+</head>
+<body>
+<div id="app">
+  <div class="greg-bg" v-show="showStartup" >
+    <div style="text-align: center;height: 100%;line-height: 100%;">
+      <!-- <img src="./assets/images/startupPage.gif" alt="" style="width: 100%;height: 85%;object-fit: contain;"> -->
+    </div>
+  </div>
+</div>
+
+  <script> 
+     // $(function(){
+      this.code = this.getQueryStrs("code");
+      this.projectType = this.getQueryStrs("projectType");
+      this.key = this.getQueryStrs("leaseKey");
+      this.userName = this.getQueryStrs("leaseUserName");
+      let router = window.location.pathname.replace('/oauth2.html','');       
+      location.replace(router+"/#/pages-leasing/paymentinfo/WXSharePageGzhOauth?code="+this.getQueryStrs("code")+"&projectType="+this.getQueryStrs("projectType")+"&key="+this.getQueryStrs("leaseKey")+"&userName="+this.getQueryStrs("leaseUserName")+"&_t=" +new Date().getTime());
+
+      // setTimeout( function(){
+      //   location.replace("../"+rootUrl+"/#/oauth?code="+this.getQueryStrs("code")+"&projectType="+this.getQueryStrs("projectType")+"&_t=" +new Date().getTime());
+      // }, 1 * 1000 );//延迟3000毫秒
+
+    // })
+    function getQueryStrs(name) {
+      var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) {
+        if(name == "leaseUserName"){
+          return r[2]
+        }else{
+          return unescape(r[2]);
+        }
+      }
+      return null;
+    }
+  </script>
+
+</body>
+</html>

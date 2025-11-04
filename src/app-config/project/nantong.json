@@ -1,0 +1,89 @@
+{
+  "NAME": "致豪服务", // 选择项目时的名称，必填
+  "APP_CONFIG": {
+    // 挂在Node 环境变量 VUE_APP_CONFIG
+    "PROJECT_CODE": "ZHFW", // 项目编码，常量的写法
+    "PROJECT_TYPE": "246", // 跟COMPLANY_ID在运营中心查询
+    "DOMAIN_DEV": "https://saas70.wuyeface.com",
+    "DOMAIN_PRO": "https://saas70.wuyeface.com",
+    "PROXY_PATH": "/API", // 接口代理路径
+    "THEME_NAME": "theme-default",
+    "COMPLANY_ID": "516",
+    "IMG_BASE_URL": "https://saas70.wuyeface.com", // 图片前缀（域名或ip），例如：http://183.239.172.150:5905
+    "IMG_BASE_FOLDER": "online-assets", // 存放线上图片文件目录, 不用加斜杆，例如： online-assets
+    "ENABLED_MALL": false, // 是否启用商城模块
+  //   "ENABLED_MALL": true, // 是否启用商城模块
+    "PAY_ORIGINAL_ID": "gh_1ab321dd2fcb", // 微信支付小程序原始id（不一定是本小程序，可能其他小程序）
+    "PAYMENT": { "wx": "jsapi", "zfb": "app" }, // 支付方式。请查看 DOC.md 文档
+    "OA_APP_ID": "" ,// 公众号appid
+    "PHONE": "4006353608", // 400电话
+    "LEASING_V6": false,
+    "NEIKONG_V6": true,
+    "PROGRAM_TYPE":"wechat" //打包出来的类型，用户判断app登录和绑定手机号时判断页面  默认小程序 公众号wechat,app内嵌h5 appH5, app：app 
+
+  },
+  "MANIFEST": {
+    "name": "致豪服务",
+    "appid": "wxcdb2db677ff20957",
+    "app-plus": {
+      "distribute": {
+        "sdkConfigs": {
+          "oauth": {
+            "weixin": {
+              "appid": "wxcdb2db677ff20957",
+              "appSecret": "1a585995d7ac8171a252cb141798e28d",
+              "UniversalLinks": ""
+            }
+          }
+        }
+      },
+      "compatible": {
+        "ignoreVersion": true // 暂时隐藏提示
+      },
+      "modules" : {
+        "Share" : {},
+        "Camera" : {}
+      }
+    },
+    "h5": {
+      "devServer": {
+        "port": "",
+        "disableHostCheck": true,
+        "proxy": {
+          "/API": {
+            "target": "https://saas70.wuyeface.com",
+            "changeOrigin": true,
+            "secure": false,
+            "pathRewrite": {
+              "^/API": ""
+            }
+          }
+        },
+        "https": false
+      },
+      "router": {
+        "mode": "hash",
+        "base": "./"
+      }
+    },
+    "mp-weixin": {
+      "appid": "wxcdb2db677ff20957",
+      "setting": {
+        "urlCheck": true,
+        "minified": true
+      },
+      "usingComponents": true,
+      "permission": {
+        "scope.userLocation": {
+          "desc": "位置信息"
+        },
+        "scope.bluetooth": {
+          "desc": "蓝牙开门"
+        }
+      },
+      "optimization": {
+        "subPackages": true
+      }
+    }
+  }
+}

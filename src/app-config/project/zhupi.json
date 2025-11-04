@@ -1,0 +1,87 @@
+{
+    "NAME": "珠啤琶醍小程序", // 选择项目时的名称，必填
+    "APP_CONFIG": {
+      // 挂在Node 环境变量 VUE_APP_CONFIG
+      "PROJECT_CODE": "zhupi", // 项目编码，常量的写法
+      "PROJECT_TYPE": "217", // 跟COMPLANY_ID在运营中心查询
+      "DOMAIN_DEV": "https://partytest.zhujiangbeer.com",
+      "DOMAIN_PRO": "https://partytest.zhujiangbeer.com",
+      "PROXY_PATH": "/API", // 接口代理路径
+      "THEME_NAME": "theme-default",
+      "COMPLANY_ID": "476",
+      "IMG_BASE_URL": "https://partytest.zhujiangbeer.com", // 图片前缀（域名或ip），例如：http://183.239.172.150:5905
+      "IMG_BASE_FOLDER": "online-assets", // 存放线上图片文件目录, 不用加斜杆，例如： online-assets
+      "ENABLED_MALL": false, // 是否启用商城模块
+    //   "ENABLED_MALL": true, // 是否启用商城模块
+      "PAY_ORIGINAL_ID": "gh_3e6d317cf2fe", // 微信支付小程序原始id（不一定是本小程序，可能其他小程序）
+      "PAYMENT": { "wx": "jsapi", "zfb": "app" }, // 支付方式。请查看 DOC.md 文档
+      "OA_APP_ID": "" ,// 公众号appid
+      "PHONE": "4006353608", // 400电话
+      "LEASING_V6": false,
+      "NEIKONG_V6": false,
+      "PROGRAM_TYPE":"wechat" //打包出来的类型，用户判断app登录和绑定手机号时判断页面  默认小程序 公众号wechat,app内嵌h5 appH5, app：app 
+
+    },
+    "MANIFEST": {
+      "name": "一碑生活助手",
+      "appid": "wxfb0a5d7b3f8d7c43",
+      "app-plus": {
+        "distribute": {
+          "sdkConfigs": {
+            "oauth": {
+              "weixin": {
+                "appid": "wxfb0a5d7b3f8d7c43",
+                "appSecret": "596792093b94153a6c1160e1a6650e85",
+                "UniversalLinks": ""
+              }
+            }
+          }
+        },
+        "compatible": {
+          "ignoreVersion": true // 暂时隐藏提示
+        },
+        "modules" : {
+          "Share" : {},
+          "Camera" : {}
+        }
+      },
+      "h5": {
+        "devServer": {
+          "port": "",
+          "disableHostCheck": true,
+          "proxy": {
+            "/API": {
+              "target": "https://partytest.zhujiangbeer.com",
+              "changeOrigin": true,
+              "secure": false,
+              "pathRewrite": {
+                "^/API": ""
+              }
+            }
+          },
+          "https": false
+        },
+        "router": {
+          "mode": "hash",
+          "base": "./"
+        }
+      },
+      "mp-weixin": {
+        "appid": "wxfb0a5d7b3f8d7c43",
+        "setting": {
+          "urlCheck": true,
+          "minified": true
+        },
+        "usingComponents": true,
+        "permission": {
+          "scope.userFuzzyLocation": {
+            "desc": "位置信息"
+          }
+        },
+        "requiredPrivateInfos": ["getFuzzyLocation"],
+        "optimization": {
+          "subPackages": true
+        }
+      }
+    }
+  }
