@@ -1,0 +1,88 @@
+{
+  "NAME": "珠啤琶醍", // 选择项目时的名称，必填
+  "APP_CONFIG": {
+    // 挂在Node 环境变量 VUE_APP_CONFIG
+    "PROJECT_CODE": "ZHUPIPATI", // 项目编码，常量的写法
+    "PROJECT_TYPE": "", // 跟COMPLANY_ID在运营中心查询
+    "DOMAIN_DEV": "https://partytest.zhujiangbeer.com",
+    "DOMAIN_PRO": "https://partytest.zhujiangbeer.com",
+    "PROXY_PATH": "/API", // 接口代理路径
+    "THEME_NAME": "theme-default",
+    "COMPLANY_ID": "476",
+    "USER_ID": "",
+    "IMG_BASE_URL": "https://partytest.zhujiangbeer.com", // 图片前缀（域名或ip），例如：http://183.239.172.150:5905
+    "IMG_BASE_FOLDER": "qw-online-assets", // 存放线上图片文件目录, 不用加斜杆，例如： online-assets
+    "ENABLED_MALL": false, // 是否启用商城模块
+    "PAY_ORIGINAL_ID": "gh_3c2ea56afdc6", // 微信支付小程序原始id（不一定是本小程序，可能其他小程序）
+    "PAYMENT": {
+      "wx": "jsapi",
+      "zfb": "app"
+    }, // 支付方式。请查看 DOC.md 文档
+    "OA_APP_ID": "", // 公众号appid
+    "MINE_NAME": "珠啤琶醍",
+    "LEASING_V6": true,
+    "NEIKONG_V6": true,
+    "OWNER_APPID": ""
+  },
+  "MANIFEST": {
+    "name": "企微",
+    "appid": "",
+    "app-plus": {
+      "distribute": {
+        "sdkConfigs": {
+          "oauth": {
+            "weixin": {
+              "appid": "",
+              "appSecret": "",
+              "UniversalLinks": ""
+            }
+          }
+        }
+      },
+      "compatible": {
+        "ignoreVersion": true // 暂时隐藏提示
+      },
+      "modules": {
+        "Share": {},
+        "Camera": {}
+      }
+    },
+    "h5": {
+      "devServer": {
+        "port": "",
+        "disableHostCheck": true,
+        "proxy": {
+          "/API": {
+            "target": "https://partytest.zhujiangbeer.com",
+            "changeOrigin": true,
+            "secure": false,
+            "pathRewrite": {
+              "^/API": ""
+            }
+          }
+        },
+        "https": false
+      },
+      "router": {
+        "mode": "hash",
+        "base": "./"
+      }
+    },
+    "mp-weixin": {
+      "appid": "",
+      "setting": {
+        "urlCheck": true,
+        "minified": true
+      },
+      "usingComponents": true,
+      "permission": {
+        "scope.userLocation": {
+          "desc": "位置信息"
+        }
+      },
+      "optimization": {
+        "subPackages": true
+      }
+    }
+  }
+}

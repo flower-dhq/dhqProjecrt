@@ -1,0 +1,43 @@
+// 设置u-view组件库 组件主题色 或者其他默认属性
+export default ({ primaryColor } = {}) => {
+
+  const colorProps = {
+    color: primaryColor,
+  };
+  const activeColorProps = {
+    activeColor: primaryColor,
+  };
+  
+  // 返回对象为 uni.$u.setConfig({props}) 的 props
+  return {
+    datetimePicker: {
+      confirmColor: primaryColor,
+    },
+    calendar: colorProps,
+    checkboxGroup: activeColorProps,
+    radioGroup: activeColorProps,
+    switch: activeColorProps,
+    picker: {
+      confirmColor: primaryColor
+    },
+    modal: {
+      confirmColor: primaryColor
+    },
+    tabs: {
+      lineColor: primaryColor,
+      lineWidth: '60rpx',
+      lineHeight: '4rpx',
+      activeStyle: {
+        fontSize: '26rpx',
+        color: primaryColor
+      },
+      inactiveStyle: {
+        color: '#666666'
+      }
+    },
+    loadmore: {
+      fontSize: '24rpx'
+    }
+  };
+
+};
