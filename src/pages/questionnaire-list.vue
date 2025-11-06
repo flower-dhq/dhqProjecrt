@@ -176,7 +176,36 @@ export default{
     },
     
   },
+  onUnload() {
+
+    // #ifdef MP-WEIXIN
+     uni.enableAlertBeforeUnload({
+      message: "您的问卷数据尚未提交，确定要退出吗？数据将会保存在本地。",
+      complete: function (res) {
+        uni.reLaunch({
+          url: '/pages/questionnaire-Instructions',
+        });
+      },
+      fail: function (errMsg) {
+        console.log("点击取消按钮了：", errMsg);
+      },
+    })
+    // #endif
+
+  },
   onLoad() {
+
+    // #ifdef MP-WEIXIN
+     uni.enableAlertBeforeUnload({
+      message: "您的问卷数据尚未提交，确定要退出吗？数据将会保存在本地。",
+      complete: function (res) {
+      },
+      fail: function (errMsg) {
+        console.log("点击取消按钮了：", errMsg);
+      },
+    })
+    // #endif
+
     const { QUESTIONNAIRE_INFO } = this.$constant
     const obj = utils.storageAction({ key: QUESTIONNAIRE_INFO, action: 'get' }) || {};
     // obj.startTime = new Date()

@@ -344,14 +344,14 @@ export default{
 
     
     // #ifdef MP-WEIXIN
-    // uni.enableAlertBeforeUnload({
-    //   message: "您的问卷数据尚未提交，确定要退出吗？数据将会保存在本地。",
-    //   success: function (res) {
-    //   },
-    //   fail: function (errMsg) {
-    //     console.log("点击取消按钮了：", errMsg);
-    //   },
-    // })
+    wx.enableAlertBeforeUnload({
+      message: "您的问卷数据尚未提交，确定要退出吗？数据将会保存在本地。",
+      success: function (res) {
+      },
+      fail: function (errMsg) {
+        console.log("点击取消按钮了：", errMsg);
+      },
+    })
     // #endif
   },
 
